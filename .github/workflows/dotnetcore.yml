@@ -14,9 +14,9 @@ jobs:
       with:
         dotnet-version: 2.2.108
     - name: Build
-      run: dotnet build -c Release
+      run: dotnet build .\src\Hangfire.PostgreSql\ -c Release --framework netstandard2.0
     - name: Build
-      run: dotnet pack -c Release -o Out
+      run: dotnet pack .\src\Hangfire.PostgreSql\ -c release -o out -p:TargetFrameworks=netstandard2.0
     - name: Install NuGet client
       uses: warrenbuckley/Setup-Nuget@v1
     - name: Add private GitHub registry to NuGet
