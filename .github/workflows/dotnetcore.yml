@@ -17,6 +17,8 @@ jobs:
       run: dotnet build ./src/Hangfire.PostgreSql -c release --framework netstandard2.0
     - name: Build
       run: dotnet pack ./src/Hangfire.PostgreSql -c release -o out -p:TargetFrameworks=netstandard2.0
+    - name: Install NuGet client
+      uses: warrenbuckley/Setup-Nuget@v1
     - name: Add private GitHub registry to NuGet
       run: nuget sources add -name "GPR" -Source https://nuget.pkg.github.com/davidroth/index.json -Username davidroth -Password ${{ secrets.GITHUB_TOKEN }}
     - name: Push generated package to GitHub registry
