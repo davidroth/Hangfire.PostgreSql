@@ -4,9 +4,7 @@ on: [push]
 
 jobs:
   build:
-
     runs-on: windows-latest
-
     steps:
     - uses: actions/checkout@v1
     - name: Setup .NET Core
@@ -22,4 +20,4 @@ jobs:
     - name: Add private GitHub registry to NuGet
       run: nuget sources add -name "GPR" -Source https://nuget.pkg.github.com/davidroth/index.json -Username davidroth -Password ${{ secrets.GITHUB_TOKEN }}
     - name: Push generated package to GitHub registry
-      run: nuget push ./src/Hangfire.PostgreSql/out/*.nupkg -Source "GPR" -SkipDuplicate
+      run: nuget push ./out/*.nupkg -Source "GPR" -SkipDuplicate
