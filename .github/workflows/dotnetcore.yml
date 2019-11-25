@@ -14,7 +14,7 @@ jobs:
       with:
         dotnet-version: 3.0.101
     - name: Build
-      run: dotnet build ./src/Hangfire.PostgreSql -c Release --framework netstandard2.0
+      run: dotnet build ./src/Hangfire.PostgreSql -c release --framework netstandard2.0
     - name: Build
       run: dotnet pack ./src/Hangfire.PostgreSql -c release -o out -p:TargetFrameworks=netstandard2.0
     - name: Install NuGet client
